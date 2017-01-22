@@ -47,6 +47,7 @@ int main(int argc, char **argv)
 						//return = 28
 						//backspace = 14
 				}
+				free(keys)
 		}
 		else
 				printf("Error opening keyboard.\n");

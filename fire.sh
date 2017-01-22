@@ -1,33 +1,32 @@
 #!/bin/sh
 #set -x
 
-echo ""
+echo "\n"
 while [ 1 ] ; do
-	echo -n "\033[2A\c"
-	echo -n "\033;0\c"
-	#echo "$RANDOM )"	
+	printf "\033[2A"
+	printf "\033[0m"
 	var=$(( $RANDOM % 2 ))
 	if [ $var -eq 1 ] ; then
-			echo -n "2;\c"
+			printf "\033[2m\c"
 	fi
 	
 	var=$(( $RANDOM % 2 ))
 	if [ $var -eq 1 ] ; then
-			echo "3;\c"
+			printf "\033[3m\c"
 	fi
 	
 	var=$(( $RANDOM % 2 ))
 	if [ $var -eq 1 ] ; then
-			echo "1;\c"
+			printf "\033[1m\c"
 	fi
 	
 	var=$(( $RANDOM % 3 ))
 	if [ $var -eq 0 ] ; then
-			echo "40;\c"
+			printf "\033[40m\c"
 	elif [ $var -eq 1 ] ; then
-			echo "41;\c"
+			printf "\033[41m\c"
 	else
-			echo "43;\c"
+			printf "\033[43m\c"
 	fi
 
 	var=$(( $RANDOM % 4 ))
@@ -44,8 +43,7 @@ while [ 1 ] ; do
 	if [ $var -eq 0 ] ; then
 			var2=$(( $var2 + 60 ))
 	fi
-	echo "$var2\c"
-	echo "m\c"
+	printf "\033[${var2}m"
 
 	var=$(( $RANDOM % 4 )) #i wanted to do 10ish sSzZxXvVnNmM^&$,.?!
 	if [ $var -eq 0 ] ; then

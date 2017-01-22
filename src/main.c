@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>
+#include <stdlib.h>
 
 /*void waitFor (unsigned int secs) {
   unsigned int retTime = time(0) + secs;   // Get finishing time.
@@ -28,8 +29,8 @@ int main(int argc, char **argv)
 				while (keys[0])
 				{
 						read(fd, &ev, sizeof(struct input_event));
-						if ((ev.type == 1) && (ev.value > 0))
-								key[ev.code - 1] = ev.value;
+						if ((ev.type == 1) && (ev.code > 0))
+								keys[ev.code - 1] = ev.value;
 						//a = 30
 						//w = 17
 						//s = 31
@@ -46,8 +47,9 @@ int main(int argc, char **argv)
 						//right = 106
 						//return = 28
 						//backspace = 14
+//						printf("last key pressed was %i and value %i", ev.code, ev.value);
 				}
-				free(keys)
+				free(keys);
 		}
 		else
 				printf("Error opening keyboard.\n");

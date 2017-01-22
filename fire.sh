@@ -1,13 +1,14 @@
 #!/bin/sh
+#set -x
 
 echo ""
 while [ 1 ] ; do
-	echo "\033[2A"
-	echo "\033;0\c"
-	echo "$( $RANDOM )"	
+	echo -n "\033[2A\c"
+	echo -n "\033;0\c"
+	#echo "$RANDOM )"	
 	var=$(( $RANDOM % 2 ))
 	if [ $var -eq 1 ] ; then
-			echo "2;\c"
+			echo -n "2;\c"
 	fi
 	
 	var=$(( $RANDOM % 2 ))

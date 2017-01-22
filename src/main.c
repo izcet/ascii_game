@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 		int 	fd;
 		struct	input_event ev;
 		int		*keys;
-
+		//handle grid
 
 		fd = open(argv[1], O_RDONLY);//stdin, O_RDONLY);
 		if (fd != -1)
